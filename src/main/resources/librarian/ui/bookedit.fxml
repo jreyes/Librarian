@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<StackPane fx:id="rootPane" stylesheets="@/styles/dark-theme.css" xmlns="http://javafx.com/javafx/8.0.121"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="librarian.ui.BookEditController">
+    <AnchorPane fx:id="mainContainer" prefHeight="338.0" prefWidth="464.0" styleClass="custom-pane"
+                stylesheets="@/styles/dark-theme.css">
+        <VBox prefHeight="256.0" prefWidth="404.0" spacing="10.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            </padding>
+            <JFXTextField fx:id="title" labelFloat="true" promptText="Book Title">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0" top="20.0"/>
+                </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="author" labelFloat="true" layoutX="20.0" layoutY="30.0" promptText="Book Author">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0" top="20.0"/>
+                </VBox.margin>
+            </JFXTextField>
+            <JFXTextField fx:id="publisher" labelFloat="true" layoutX="10.0" layoutY="62.0" promptText="Publisher">
+                <VBox.margin>
+                    <Insets left="10.0" right="10.0" top="20.0"/>
+                </VBox.margin>
+            </JFXTextField>
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="404.0" spacing="30.0">
+                <VBox.margin>
+                    <Insets top="25.0"/>
+                </VBox.margin>
+                <padding>
+                    <Insets bottom="20.0"/>
+                </padding>
+                <JFXButton fx:id="saveButton" onAction="#updateBook" prefHeight="66.0" prefWidth="100.0" text="Save"/>
+                <JFXButton fx:id="cancelButton" layoutX="10.0" layoutY="10.0" onAction="#cancel" prefHeight="66.0"
+                           prefWidth="100.0" text="Cancel"/>
+            </HBox>
+        </VBox>
+    </AnchorPane>
+</StackPane>

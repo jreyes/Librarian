@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <changeSet id="00000000000000" author="jreyes">
+        <createSequence sequenceName="hibernate_sequence" startValue="1000" incrementBy="50"/>
+    </changeSet>
+
+    <changeSet id="00000000000001" author="jreyes">
+        <createTable tableName="LIB_BOOK">
+            <column name="BOOK_ID" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="AUTHOR" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_AVAILABLE" type="boolean" valueBoolean="true"/>
+            <column name="ISSUE_TIME" type="datetime"/>
+            <column name="PUBLISHER" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RENEW_COUNT" type="int(10)" defaultValue="0"/>
+            <column name="TITLE" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="LIB_MEMBER">
+            <column name="MEMBER_ID" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="EMAIL" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="MOBILE" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="LIB_ISSUES">
+            <column name="BOOK_ID" type="varchar(255)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="MEMBER_ID" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <createTable tableName="LIB_SETTING">
+            <column name="USERNAME" type="varchar(20)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="PASSWORD" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="DAYS_WITHOUT_FINE" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="FINE_PER_DAY" type="float">
+                <constraints nullable="false"/>
+            </column>
+            <column name="API_KEY" type="varchar(60)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="00000000000002" author="jreyes">
+        <insert tableName="LIB_SETTING">
+            <column name="USERNAME" value="admin"/>
+            <column name="PASSWORD" value="d033e22ae348aeb5660fc2140aec35850c4da997"/>
+            <column name="DAYS_WITHOUT_FINE" value="2"/>
+            <column name="FINE_PER_DAY" value="14"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
