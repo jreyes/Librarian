@@ -7,6 +7,8 @@
 
 > Library management system using JavaFX and Spring Framework
 
+[![thumbnail](http://i.ytimg.com/vi/cDe8_8SnJbY/hqdefault.jpg)](http://youtu.be/cDe8_8SnJbY)
+
 ## Requirements
 
 * Maven 3.5 (older versions might work too)
