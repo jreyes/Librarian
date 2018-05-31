@@ -1,5 +1,5 @@
-![Librarian Logo](src/main/resources/images/icon.png?raw=true "Librarian")
-# Librarian
+[![thumbnail](http://i.ytimg.com/vi/cDe8_8SnJbY/hqdefault.jpg)](http://youtu.be/cDe8_8SnJbY)
+
 [![][HitCount img]][HitCount]
 [![][CircleCI img]][CircleCI]
 [![][gitter img]][gitter]
@@ -7,7 +7,6 @@
 
 > Library management system using JavaFX and Spring Framework
 
-[![thumbnail](http://i.ytimg.com/vi/cDe8_8SnJbY/hqdefault.jpg)](http://youtu.be/cDe8_8SnJbY)
 
 ## Requirements
 
